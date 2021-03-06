@@ -83,6 +83,7 @@ namespace Assignment2
                                     src = 1;
                                     break;
                                 default:
+                                    Console.WriteLine("Invalid Input");
                                     break;
                             }
                             if (src == 1) break;
@@ -91,6 +92,54 @@ namespace Assignment2
 
                         break;
                     case "account":
+                        while (true)
+                        {
+                            int ok = 0;
+          
+                            Console.WriteLine("deposit : Make a deposit\nwithdraw : Make a withdrawal\ntransfer : Make a transfer\nshow : Show the number transactions and balance");
+                            Console.Write("quit => Exit the application\nInput Your choice : ");
+                            string inp1 = Console.ReadLine();
+
+                            switch (inp1)
+                            {
+                                case "deposit":
+                                    Console.Write("Enter Account Number : ");
+                                    int accountNumber = Convert.ToInt32(Console.ReadLine());
+                                    Console.Write("Deposit amount : ");
+                                    double amount = Convert.ToDouble(Console.ReadLine());
+                                    bank.Transaction(inp1, accountNumber, amount);
+                                    break;
+                                case "withdraw":
+                                    Console.Write("Enter Account Number : ");
+                                    int accountNumber1 = Convert.ToInt32(Console.ReadLine());                                   
+                                    Console.Write("Withdraw amount : ");
+                                    double amount1 = Convert.ToDouble(Console.ReadLine());
+                                    bank.Transaction(inp1, accountNumber1, amount1);
+                                    break;
+                                case "transfer":
+                                    Console.Write("Enter Account Number : ");
+                                    int accountNumber2 = Convert.ToInt32(Console.ReadLine());
+                                    Console.Write("Enter Receiver Account Number : ");
+                                    int recNumber2 = Convert.ToInt32(Console.ReadLine());
+                                    Console.Write("Transfer amount : ");
+                                    double amount2 = Convert.ToDouble(Console.ReadLine());
+                                    bank.Transaction(inp1, accountNumber2, amount2,recNumber2);
+                                    break;
+                                case "show":
+                                    Console.Write("Enter Account Number : ");
+                                    int accountNumber3 = Convert.ToInt32(Console.ReadLine());
+                                    bank.AccountDetails(accountNumber3);
+                                    break;
+                                case "quit":
+                                    ok = 1;
+                                    break;
+                                default:
+                                    Console.WriteLine("Invalid Input");
+                                    break;
+                            }
+                            if (ok == 1) break;
+
+                        }
                         break;
                     case "quit":
                         check = 1;
