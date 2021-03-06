@@ -8,15 +8,15 @@ namespace Assignment2
 {
     abstract class Account
     {
-        private int accountNumber;
-        private string accountName;
+        protected int accountNumber;
+        protected string accountName;
         protected double balance;
-        private string dateOfBirth;
-        private Address address;
+        protected string dateOfBirth;
+        protected Address address;
         protected int transactions;
 
 
-        public Account(int accountNumber,string accountName, string dateOfBirth, double balance, Address address)
+        /*public Account(int accountNumber,string accountName, string dateOfBirth, double balance, Address address)
         {
             this.accountName = accountName;
             this.accountNumber = accountNumber;
@@ -24,7 +24,7 @@ namespace Assignment2
             this.balance = balance;
             this.address = address;
      
-        }
+        }*/
         public int AccountNumber
         {
             set { this.accountNumber = value; }
