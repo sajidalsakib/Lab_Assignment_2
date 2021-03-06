@@ -8,6 +8,14 @@ namespace Assignment2
 {
     class Program
     {
+        static int id = 0;
+
+        public static int AutoIdGenerator()
+        {
+            id++;
+            return id;
+        }
+
         static void Main(string[] args)
         {
         }
