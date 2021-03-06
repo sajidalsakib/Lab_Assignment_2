@@ -39,10 +39,11 @@ namespace Assignment2
         public void Transaction(string transactionType, params object[] obj)
         {
             int accountNumber = Convert.ToInt32(obj[0]);
-            double amount = Convert.ToSingle(obj[2]);
+            double amount = Convert.ToSingle(obj[1]);
             int findAcc = -1;
             for(int i = 0; i < myBank.Length; i++)
             {
+                if (myBank[i] == null) continue;
                 if(accountNumber == myBank[i].AccountNumber)
                 {
                     findAcc = i;
@@ -69,6 +70,7 @@ namespace Assignment2
                     int recAccount = Convert.ToInt32(obj[2]);
                     for (int j = 0; j < myBank.Length; j++)
                     {
+                        if (myBank[j] == null) continue;
                         if ( recAccount== myBank[j].AccountNumber)
                         {
                             receverAcc = j;
@@ -89,7 +91,19 @@ namespace Assignment2
         
         public void AccountDetails(int f)
         {
-            myBank[f].Show();
+            int q = -1; 
+            for (int i = 0; i < myBank.Length; i++)
+            {
+                if (myBank[i] == null) continue;
+                if (f == myBank[i].AccountNumber)
+                {
+                    q = i;
+                    break;
+                }
+            }
+
+            if (q == -1) Console.WriteLine("Invalid Account Number");
+            else  myBank[f].Show();
         }
     }
 }
