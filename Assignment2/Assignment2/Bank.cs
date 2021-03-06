@@ -103,7 +103,7 @@ namespace Assignment2
             }
 
             if (q == -1) Console.WriteLine("Invalid Account Number");
-            else  myBank[f].Show();
+            else  myBank[q].Show();
         }
     }
 }
